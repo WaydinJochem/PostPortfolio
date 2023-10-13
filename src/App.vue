@@ -1,11 +1,23 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <navComp />
   </nav>
-  <router-view/>
+  <router-view v-slot="{ Component }">
+    <transition name="zoom" mode="out-in">
+      <Component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 
+<script>
+import navComp from './components/Navigation.vue';
+
+export default {
+  components: {
+    navComp
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -15,16 +27,30 @@
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+body{
+  overflow: hidden;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #ddd;
+}
+
+.zoom-leave-to{ 
+  opacity: 0;
+  transform: scale(3.5) translateY(-50%);
+ 
+}
+
+
+.zoom-enter-from{
+  opacity: 0;
+  transform: scale(3.5) translateY(100%);
+
+}
+
+.zoom-enter-active,
+.zoom-leave-active {
+  transition: 1s ease-in;
+ 
 }
 </style>
