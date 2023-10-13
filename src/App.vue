@@ -29,6 +29,9 @@ export default {
 
 body{
   overflow: hidden;
+  background: radial-gradient(#414345, #151314);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 nav a.router-link-exact-active {
@@ -37,20 +40,19 @@ nav a.router-link-exact-active {
 
 .zoom-leave-to{ 
   opacity: 0;
-  transform: scale(3.5) translateY(-50%);
+  transform: scale(0.25) translate(-100%, 100%);
  
 }
 
-
 .zoom-enter-from{
   opacity: 0;
-  transform: scale(3.5) translateY(100%);
+  transform: translate(100%, 100%);
 
 }
 
 .zoom-enter-active,
 .zoom-leave-active {
-  transition: 1s ease-in;
+  transition: 1s ease-out;
  
 }
 </style>
