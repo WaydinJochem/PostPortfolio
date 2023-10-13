@@ -3,11 +3,14 @@
         <input type="checkbox" id="post" class="active" />
         <label for="post" class="postBtn"></label>
         <ul>
-            <li class="home"><router-link to="/"><img src="https://i.postimg.cc/9fKccWBK/icons8-home-64.png" alt=""></router-link></li>
-            <li class="about"><router-link to="/about"><img src="https://i.postimg.cc/kXmZV9x0/icons8-contact-50.png" alt=""></router-link></li>
-            <li class="link"><img src="https://i.postimg.cc/4xvzFkqT/icons8-files-50.png" alt=""></li>
-            <li class="chat"><a href="#"><img src="https://i.postimg.cc/zXssFKZc/icons8-product-knowledge-50.png" alt=""></a></li>
-            <li class="video"><a href="#"><img src="https://i.postimg.cc/K8VC8TQN/icons8-form-50.png" alt=""></a></li>
+            <li class="home"><router-link to="/"><img src="https://i.postimg.cc/9fKccWBK/icons8-home-64.png"
+                        alt=""></router-link></li>
+            <li class="about"><router-link to="/about"><img src="https://i.postimg.cc/kXmZV9x0/icons8-contact-50.png"
+                        alt=""></router-link></li>
+            <li class="projects"><img src="https://i.postimg.cc/4xvzFkqT/icons8-files-50.png" alt=""></li>
+            <li class="skills"><a href="#"><img src="https://i.postimg.cc/zXssFKZc/icons8-product-knowledge-50.png"
+                        alt=""></a></li>
+            <li class="contact"><a href="#"><img src="https://i.postimg.cc/K8VC8TQN/icons8-form-50.png" alt=""></a></li>
         </ul>
     </nav>
     <div class="overlay"></div>
@@ -18,6 +21,7 @@ export default {
 }
 </script>
 <style scoped>
+/* Navigation main body */
 .navigation {
     position: absolute;
     left: 15px;
@@ -25,9 +29,8 @@ export default {
     z-index: 2;
 }
 
-/* Experimental code */
 
-
+/* Open & Close Navigation Code Start */
 .postBtn {
     animation: glow 2s infinite ease-in-out;
     height: 60px;
@@ -40,26 +43,11 @@ export default {
     cursor: pointer;
     transition: all 0.5s ease-in-out;
 }
-@keyframes glow{
-    0%{
-        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.468);
-    }
-    25%{
-        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.468);
-    }
-    50%{
-        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.468);
-    }
-    75%{
-        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.468);
-    }
-    100%{
-        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.468);
-    }
-}
-.postBtn:hover{
+
+.postBtn:hover {
     background: #0f0f0f;
 }
+
 .postBtn:after {
     content: '+';
     width: 100%;
@@ -72,11 +60,25 @@ export default {
     transform: translate3d(0, 0, 0);
 }
 
+.active:checked~.postBtn {
+    background: #0f0f0f;
+    transform: scale(0.85);
+    animation: glow-stop 3s ease;
+}
 
+
+.active:checked~.postBtn:after {
+    content: 'x';
+}
+
+/* Open & Close navigation End */
+
+/* Check input */
 .active {
     display: none;
 }
 
+/* Naviagtion Links Start */
 ul {
     margin: 0;
     padding: 0;
@@ -91,21 +93,23 @@ li {
     width: 50px;
     background: #d6d6d6;
     border-radius: 50%;
-    box-shadow:2px 2px #0f0f0f;
+    box-shadow: 2px 2px #0f0f0f;
     opacity: 0;
     border: 1px solid white;
     background-clip: padding-box;
     transform: translate3d(0, 0, 0);
     transition: transform 0.3s cubic-bezier(0.48, 0.13, 0.42, 1.45), opacity 0.2s ease-in;
 }
+
 li img {
     width: 45px;
     transition: 0.5s ease-in;
 }
-.router-link-exact-active{
+
+.router-link-exact-active {
     background: #85080A;
-    transform: scale(1.25);
 }
+
 li:nth-child(2) {
     transition-delay: 0.1s;
 }
@@ -133,26 +137,13 @@ li a {
 li {
     background: #363636;
 }
+
 li:hover {
     background: #85080A;
 }
-img:hover{
+
+img:hover {
     transform: scale(1.25);
-}
-
-.active:checked~.postBtn {
-    background: #0f0f0f;
-    transform: scale(0.85);
-    animation: glow-stop 3s ease;
-}
-
-@keyframes glow-stop{
-    from {
-        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.468);
-    }
-    to {
-        box-shadow: none;
-    }
 }
 
 .active:checked~ul li {
@@ -175,27 +166,63 @@ img:hover{
     box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-.active:checked~ul .link {
+.active:checked~ul .projects {
     transform: translate(175%, 0);
 }
 
-.active:checked~ul .link:hover {
+.active:checked~ul .projects:hover {
     box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-.active:checked~ul .chat {
+.active:checked~ul .skills {
     transform: translate(125%, 130%);
 }
 
-.active:checked~ul .chat:hover {
+.active:checked~ul .skills:hover {
     box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-.active:checked~ul .video {
+.active:checked~ul .contact {
     transform: translate(0, 100px);
 }
 
-.active:checked~ul .video:hover {
+.active:checked~ul .contact:hover {
     box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
 }
+/* Navigation Links End */
+
+/* Animation and keyframes Start */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.468);
+    }
+
+    25% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.468);
+    }
+
+    50% {
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.468);
+    }
+
+    75% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.468);
+    }
+
+    100% {
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.468);
+    }
+}
+
+@keyframes glow-stop {
+    from {
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.468);
+    }
+
+    to {
+        box-shadow: none;
+    }
+}
+
+/* Animation and keyframes End */
 </style>
