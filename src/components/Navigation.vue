@@ -10,7 +10,7 @@
             <li class="projects"><img src="https://i.postimg.cc/4xvzFkqT/icons8-files-50.png" alt=""></li>
             <li class="skills"><a href="#"><img src="https://i.postimg.cc/zXssFKZc/icons8-product-knowledge-50.png"
                         alt=""></a></li>
-            <li class="contact"><a href="#"><img src="https://i.postimg.cc/K8VC8TQN/icons8-form-50.png" alt=""></a></li>
+            <li class="contact"><router-link to="/contact"><img src="https://i.postimg.cc/K8VC8TQN/icons8-form-50.png" alt=""></router-link></li>
         </ul>
     </nav>
     <div class="overlay"></div>
