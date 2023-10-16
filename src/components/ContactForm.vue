@@ -1,12 +1,12 @@
 <template>
-    <form action="https://formspree.io/f/xjvqjrjg" method="POST" class="container my-5">
+    <form @submit.prevent="submitForm" action="https://formspree.io/f/xjvqjrjg" method="POST" class="container my-5">
         <div class="form-body row">
             <div class="form-data col-sm-6">
                 <div class="form-name">
                     <label for="email">Email:</label>
                 </div>
                 <div class="form-input">
-                    <input type="email" name="email" placeholder="Input Email Address">
+                    <input type="email" name="email" placeholder="Input Email Address" v-model="contact.email">
                 </div>
             </div>
             <div class="form-data col-sm-6">
@@ -14,7 +14,7 @@
                     <label for="name">Name:</label>
                 </div>
                 <div class="form-input">
-                    <input type="text" name="name" placeholder="Input fullname">
+                    <input type="text" name="name" placeholder="Input fullname" v-model="contact.name">
                 </div>
             </div>
             <div class="form-data col">
@@ -23,8 +23,8 @@
                 </div>
                 <div class="form-msg">
                     <!-- <textarea name="" id="" cols="30"></textarea> -->
-                    <textarea name="text"
-                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+                    <textarea name="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+                        v-model="contact.query">
                     </textarea>
 
                 </div>
@@ -36,8 +36,33 @@
     </form>
 </template>
 <script>
+import swal from 'sweetalert2';
 export default {
+    data() {
+        return {
+            contact: {
+                email: "",
+                name: "",
+                query: ""
+            },
+        }
+    },
+    methods: {
+        submitForm() {
+            if (!this.contact.email || !this.contact.email || !this.contact.query) {
+                swal.fire({
+                    title: "Umm...",
+                    text: "Seems that not all fields were filled in, please fill in all form fields to continue",
+                    icon: "question"
+                })
+                return;
+            }
+            else {
+                swal.fire("Good job!", "Form has been successfully submitted", "success")
+            }
 
+        } 
+    }
 }
 </script>
 <style scoped>
@@ -63,7 +88,8 @@ input:focus {
     width: 10rem;
     text-align: center;
 }
-textarea{
+
+textarea {
     padding: 4px 1em;
     resize: none;
     overflow: hidden;
@@ -71,7 +97,7 @@ textarea{
 }
 
 @media only screen and (max-width: 330px) {
-    textarea{
+    textarea {
         width: 15rem;
     }
 }
