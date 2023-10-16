@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="submitForm" action="https://formspree.io/f/xjvqjrjg" method="POST" class="container my-5">
+    <form @submit.prevent="submitForm" class="container my-5">
         <div class="form-body row">
             <div class="form-data col-sm-6">
                 <div class="form-name">
@@ -48,7 +48,29 @@ export default {
         }
     },
     methods: {
-        submitForm() {
+        async submitToFormspree() {
+            try {
+                const formSpreeEndpoint = "https://formspree.io/f/xjvqjrjg";
+
+                const response = await fetch(formSpreeEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(this.contact),
+                });
+
+                if (response.ok) {
+                    swal.fire('Good job!', 'Form has been successfully submitted', 'success');
+                    this.clearForm();
+                } else {
+                    swal.fire('Error!', 'Form submission failed', 'error');
+                }
+            } catch (error) {
+                swal.fire('Error!', 'An error occurred while submitting the form', 'error');
+            }
+        },
+        async submitForm() {
             if (!this.contact.email || !this.contact.email || !this.contact.query) {
                 swal.fire({
                     title: "Umm...",
@@ -58,10 +80,10 @@ export default {
                 return;
             }
             else {
-                swal.fire("Good job!", "Form has been successfully submitted", "success")
+                this.submitToFormspree();
             }
 
-        } 
+        }
     }
 }
 </script>
