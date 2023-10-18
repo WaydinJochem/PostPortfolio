@@ -26,11 +26,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  overflow: hidden;
+}
+
+body{
   background: radial-gradient(#414345, #151314);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 300dvb;
+  padding: 20px;
 }
 
 
