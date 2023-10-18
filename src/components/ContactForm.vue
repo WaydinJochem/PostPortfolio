@@ -104,11 +104,13 @@ input {
     width: 3rem;
     transition: 0.7s ease-in-out;
     text-overflow: ellipsis;
+    background: none;
 }
 
 input:focus {
     width: 10rem;
     text-align: center;
+    background: #ddd;
 }
 
 textarea {
@@ -116,6 +118,7 @@ textarea {
     resize: none;
     overflow: hidden;
     width: 20rem;
+    outline: none;
 }
 
 @media only screen and (max-width: 330px) {
@@ -123,4 +126,5 @@ textarea {
         width: 15rem;
     }
 }
+
 </style>

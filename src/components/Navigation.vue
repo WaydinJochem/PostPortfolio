@@ -8,9 +8,10 @@
             <li class="about"><router-link to="/about"><img src="https://i.postimg.cc/kXmZV9x0/icons8-contact-50.png"
                         alt=""></router-link></li>
             <li class="projects"><img src="https://i.postimg.cc/4xvzFkqT/icons8-files-50.png" alt=""></li>
-            <li class="skills"><a href="#"><img src="https://i.postimg.cc/zXssFKZc/icons8-product-knowledge-50.png"
-                        alt=""></a></li>
-            <li class="contact"><router-link to="/contact"><img src="https://i.postimg.cc/K8VC8TQN/icons8-form-50.png" alt=""></router-link></li>
+            <li class="skills"><router-link to="/skills"><img
+                        src="https://i.postimg.cc/zXssFKZc/icons8-product-knowledge-50.png" alt=""></router-link></li>
+            <li class="contact"><router-link to="/contact"><img src="https://i.postimg.cc/K8VC8TQN/icons8-form-50.png"
+                        alt=""></router-link></li>
         </ul>
     </nav>
     <div class="overlay"></div>
@@ -23,7 +24,7 @@ export default {
 <style scoped>
 /* Navigation main body */
 .navigation {
-    position: absolute;
+    position: fixed;
     left: 15px;
     top: 50%;
     z-index: 2;
@@ -107,7 +108,7 @@ li img {
 }
 
 .router-link-exact-active {
-    background: #85080A;
+    background: #CC1515;
 }
 
 li:nth-child(2) {
@@ -189,6 +190,7 @@ img:hover {
 .active:checked~ul .contact:hover {
     box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
 }
+
 /* Navigation Links End */
 
 /* Animation and keyframes Start */

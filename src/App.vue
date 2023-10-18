@@ -2,11 +2,12 @@
   <nav>
     <navComp />
   </nav>
-  <router-view v-slot="{ Component }">
+  <!-- <router-view v-slot="{ Component }">
     <transition name="zoom" mode="out-in">
       <Component :is="Component" />
     </transition>
-  </router-view>
+  </router-view> -->
+  <router-view/>
 </template>
 
 <script>
@@ -29,13 +30,11 @@ export default {
   background: radial-gradient(#414345, #151314);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  height: 300dvb;
 }
 
 
 
-nav a.router-link-exact-active {
-  color: #ddd;
-}
 
 .zoom-leave-to{ 
   opacity: 0;
