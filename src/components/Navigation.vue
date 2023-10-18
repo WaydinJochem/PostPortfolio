@@ -1,5 +1,5 @@
 <template>
-    <nav role='navHeader' class="navigation">
+    <nav role='navHeader' class="navigation" v-if="showNavbar">
         <input type="checkbox" id="post" class="active" />
         <label for="post" class="postBtn"></label>
         <ul>
@@ -14,11 +14,28 @@
                         alt=""></router-link></li>
         </ul>
     </nav>
-    <div class="overlay"></div>
+    <button @click="toggleNavbar()"><img src="https://i.postimg.cc/X79Hf1FQ/icons8-eye-50.png" alt="" id="eye"></button>
 </template>
 <script>
 export default {
-
+    data() {
+        return {
+            showNavbar: true, // Initially, the navbar is visible
+        };
+    },
+    methods: {
+        toggleNavbar() {
+            const eye = document.getElementById("eye");
+            this.showNavbar = !this.showNavbar;
+            if(!this.showNavbar) {
+                eye.style.background = "rgba(255, 255, 255, 0.1)"
+                eye.style.borderRadius = "50%"
+            }
+            else {
+                eye.style = "none"
+            }
+        },
+    },
 }
 </script>
 <style scoped>
@@ -30,6 +47,15 @@ export default {
     z-index: 2;
 }
 
+button {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    background: none;
+    border: none;
+
+}
 
 /* Open & Close Navigation Code Start */
 .postBtn {
@@ -140,7 +166,7 @@ li:hover {
     background: #FF1A1A;
 }
 
-img:hover {
+img:hover:not() {
     transform: scale(1.25);
 }
 

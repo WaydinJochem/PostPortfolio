@@ -2,12 +2,11 @@
   <nav>
     <navComp />
   </nav>
-  <!-- <router-view v-slot="{ Component }">
+  <router-view v-slot="{ Component }">
     <transition name="zoom" mode="out-in">
       <Component :is="Component" />
     </transition>
-  </router-view> -->
-  <router-view/>
+  </router-view>
 </template>
 
 <script>
@@ -26,6 +25,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  overflow: hidden;
 }
 
 body{
