@@ -49,7 +49,7 @@ export default {
 }
 
 .postBtn:after {
-    content: '+';
+    content: url('https://i.postimg.cc/KYJg3WbK/icons8-search-32.png');
     width: 100%;
     position: relative;
     line-height: 60px;
@@ -67,9 +67,7 @@ export default {
 }
 
 
-.active:checked~.postBtn:after {
-    content: 'x';
-}
+
 
 /* Open & Close navigation End */
 
@@ -91,11 +89,10 @@ li {
     overflow: hidden;
     height: 50px;
     width: 50px;
-    background: #d6d6d6;
+    background: #FF1A1A;
     border-radius: 50%;
     box-shadow: 2px 2px #0f0f0f;
     opacity: 0;
-    border: 1px solid white;
     background-clip: padding-box;
     transform: translate3d(0, 0, 0);
     transition: transform 0.3s cubic-bezier(0.48, 0.13, 0.42, 1.45), opacity 0.2s ease-in;
@@ -107,7 +104,7 @@ li img {
 }
 
 .router-link-exact-active {
-    background: #85080A;
+    background: #FF1A1A;
 }
 
 li:nth-child(2) {
@@ -139,7 +136,7 @@ li {
 }
 
 li:hover {
-    background: #85080A;
+    background: #FF1A1A;
 }
 
 img:hover {
@@ -195,22 +192,27 @@ img:hover {
 @keyframes glow {
     0% {
         box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.468);
+        background: #363636;
     }
 
     25% {
         box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.468);
+        background: #0f0f0f;
     }
 
     50% {
         box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.468);
+        background: #363636;
     }
 
     75% {
         box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.468);
+        background: #0f0f0f;
     }
 
     100% {
         box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.468);
+        background: #363636;
     }
 }
 

@@ -28,10 +28,10 @@ export default {
 }
 
 body{
-  overflow: hidden;
   background: radial-gradient(#414345, #151314);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  padding: 20px;
 }
 
 nav a.router-link-exact-active {
