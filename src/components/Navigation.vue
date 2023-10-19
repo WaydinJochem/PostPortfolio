@@ -14,7 +14,8 @@
                         alt=""></router-link></li>
         </ul>
     </nav>
-    <button @click="toggleNavbar()"><img src="https://i.postimg.cc/X79Hf1FQ/icons8-eye-50.png" alt="" id="eye"></button>
+    <span @click="toggleNavbar()"><img src="https://i.postimg.cc/X79Hf1FQ/icons8-eye-50.png" alt="" id="eye"
+            class="img-fluid"></span>
 </template>
 <script>
 export default {
@@ -27,9 +28,10 @@ export default {
         toggleNavbar() {
             const eye = document.getElementById("eye");
             this.showNavbar = !this.showNavbar;
-            if(!this.showNavbar) {
+            if (!this.showNavbar) {
                 eye.style.background = "rgba(255, 255, 255, 0.1)"
                 eye.style.borderRadius = "50%"
+                eye.style.transform = "rotate(180deg)"
             }
             else {
                 eye.style = "none"
@@ -44,17 +46,15 @@ export default {
     position: fixed;
     left: 15px;
     top: 50%;
-    z-index: 2;
+    z-index: 3;
 }
 
-button {
-    position: absolute;
+span {
+    position: fixed;
     z-index: 2;
     bottom: 0;
-    left: 0;
+    left: 3px;
     background: none;
-    border: none;
-
 }
 
 /* Open & Close Navigation Code Start */
@@ -92,6 +92,7 @@ button {
     transform: scale(0.85);
     animation: glow-stop 3s ease;
 }
+
 .active.active:checked~.postBtn::after {
     content: 'x';
 }
@@ -133,7 +134,7 @@ li img {
 }
 
 .router-link-exact-active {
-    background: #FF1A1A;
+    background: #85080A;
 }
 
 li:nth-child(2) {

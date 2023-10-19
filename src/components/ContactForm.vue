@@ -6,7 +6,8 @@
                     <label for="email">Email:</label>
                 </div>
                 <div class="form-input">
-                    <input type="email" name="email" placeholder="Input Email Address" v-model="contact.email">
+                    <input type="email" name="email" placeholder="Input Email Address" v-model="contact.email" id="email"
+                        spellcheck="false">
                 </div>
             </div>
             <div class="form-data col-sm-6">
@@ -14,7 +15,8 @@
                     <label for="name">Name:</label>
                 </div>
                 <div class="form-input">
-                    <input type="text" name="name" placeholder="Input fullname" v-model="contact.name">
+                    <input type="text" name="name" placeholder="Input fullname" v-model="contact.name" id="name"
+                        spellcheck="false">
                 </div>
             </div>
             <div class="form-data col">
@@ -24,7 +26,7 @@
                 <div class="form-msg">
                     <!-- <textarea name="" id="" cols="30"></textarea> -->
                     <textarea name="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
-                        v-model="contact.query">
+                        v-model="contact.query" id="message">
                     </textarea>
 
                 </div>
@@ -93,7 +95,7 @@ export default {
                     body: JSON.stringify(this.contact),
                 });
                 if (response.ok) {
-                    swal.fire('Good job!', 'Form has been successfully submitted', 'success');
+                    swal.fire('Thank you!', 'Message has been successfully submitted', 'success');
                     this.clearForm();
                 } else {
                     swal.fire('Error!', 'Form submission failed', 'error');
@@ -103,17 +105,17 @@ export default {
             }
         },
         clearForm() {
-            this.contact.email = '';
-            this.contact.name = '';
-            this.contact.query = '';
+            this.contact.email = "";
+            this.contact.name = "";
+            this.contact.query = "";
         },
     }
 }
 </script>
 <style scoped>
 form {
-    border: 1px black ridge;
-    box-shadow: 0 0 0 3px rgba(43, 42, 42, 0.59);
+    border: 5px black ridge;
+    box-shadow: 0 0 0 3px rgba(62, 61, 61, 0.59);
 }
 
 .form-data {
@@ -144,10 +146,13 @@ textarea {
     outline: none;
 }
 
-@media only screen and (max-width: 330px) {
-    textarea {
-        width: 15rem;
-    }
+label {
+    color: #FBF7F7;
 }
 
+@media only screen and (max-width: 330px) {
+    textarea {
+        width: 14rem;
+    }
+}
 </style>
