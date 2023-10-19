@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="submitForm" class="container my-5">
+    <form @submit.prevent="confirmForm()" class="container my-5">
         <div class="form-body row">
             <div class="form-data col-sm-6">
                 <div class="form-name">
@@ -48,6 +48,39 @@ export default {
         }
     },
     methods: {
+        confirmForm() {
+            if (this.contact.email && this.contact.name && this.contact.query) {
+                swal.fire({
+                    title: 'Are you sure?',
+                    text: 'By clicking "Confirm" you are agreeing to send your message',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Confirm'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.submitToFormspree();
+                    }
+                    else if (
+                        /* Read more about handling dismissals below */
+                        result.dismiss === swal.DismissReason.cancel
+                    ) {
+                        swal.fire(
+                            'Cancelled',
+                            'Message delivery cancelled',
+                            'error'
+                        )
+                    }
+                })
+            } else {
+                swal.fire({
+                    title: "Umm...",
+                    text: "Seems that not all fields were filled in, please fill in all form fields to continue",
+                    icon: "question"
+                });
+            }
+        },
         async submitToFormspree() {
             try {
                 const formSpreeEndpoint = "https://formspree.io/f/xjvqjrjg";
@@ -55,11 +88,10 @@ export default {
                 const response = await fetch(formSpreeEndpoint, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
                     },
                     body: JSON.stringify(this.contact),
                 });
-
                 if (response.ok) {
                     swal.fire('Good job!', 'Form has been successfully submitted', 'success');
                     this.clearForm();
@@ -70,20 +102,11 @@ export default {
                 swal.fire('Error!', 'An error occurred while submitting the form', 'error');
             }
         },
-        async submitForm() {
-            if (!this.contact.email || !this.contact.email || !this.contact.query) {
-                swal.fire({
-                    title: "Umm...",
-                    text: "Seems that not all fields were filled in, please fill in all form fields to continue",
-                    icon: "question"
-                })
-                return;
-            }
-            else {
-                this.submitToFormspree();
-            }
-
-        }
+        clearForm() {
+            this.contact.email = '';
+            this.contact.name = '';
+            this.contact.query = '';
+        },
     }
 }
 </script>
