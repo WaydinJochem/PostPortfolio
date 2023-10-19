@@ -12,9 +12,11 @@
 <script>
 import navComp from './components/Navigation.vue';
 
+
 export default {
   components: {
-    navComp
+    navComp,
+
   }
 }
 </script>
@@ -32,7 +34,6 @@ body{
   background: radial-gradient(#414345, #151314);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding: 20px;
 }
 
 

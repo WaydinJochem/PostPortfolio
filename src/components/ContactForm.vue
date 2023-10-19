@@ -34,11 +34,12 @@
         </div>
 
         <!-- your other form fields go here -->
-        <button type="submit" class="mb-2">Send</button>
+        <button type="submit" class="mb-2" id="btn">Send</button>
     </form>
 </template>
 <script>
 import swal from 'sweetalert2';
+import 'animate.css';
 export default {
     data() {
         return {
@@ -56,7 +57,14 @@ export default {
                     title: 'Are you sure?',
                     text: 'By clicking "Confirm" you are agreeing to send your message',
                     icon: 'warning',
+                    backdrop: `#333`,
                     showCancelButton: true,
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    },
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Confirm'
@@ -68,10 +76,14 @@ export default {
                         /* Read more about handling dismissals below */
                         result.dismiss === swal.DismissReason.cancel
                     ) {
-                        swal.fire(
-                            'Cancelled',
-                            'Message delivery cancelled',
-                            'error'
+                        swal.fire({
+                            title: 'Cancelled',
+                            text: 'Message delivery cancelled',
+                            icon: 'error',
+                            showConfirmButton: false,
+                            showCloseButton: true,
+                            backdrop: `#333`
+                        }
                         )
                     }
                 })
@@ -79,7 +91,10 @@ export default {
                 swal.fire({
                     title: "Umm...",
                     text: "Seems that not all fields were filled in, please fill in all form fields to continue",
-                    icon: "question"
+                    icon: "question",
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    backdrop: `#333`
                 });
             }
         },
@@ -95,7 +110,7 @@ export default {
                     body: JSON.stringify(this.contact),
                 });
                 if (response.ok) {
-                    swal.fire('Thank you!', 'Message has been successfully submitted', 'success');
+                    swal.fire({ title: 'Thank you!', text: 'Message has been successfully submitted', icon: 'success', backdrop: `#333` });
                     this.clearForm();
                 } else {
                     swal.fire('Error!', 'Form submission failed', 'error');
@@ -116,6 +131,8 @@ export default {
 form {
     border: 5px black ridge;
     box-shadow: 0 0 0 3px rgba(62, 61, 61, 0.59);
+    z-index: -1;
+    margin-bottom: 20em;
 }
 
 .form-data {
@@ -145,9 +162,19 @@ textarea {
     width: 20rem;
     outline: none;
 }
+button {
+    box-shadow:inset #333 -2px -2px;
+    border-radius: 10px;
+}
 
 label {
     color: #FBF7F7;
+}
+
+@media only screen and (max-width: 350px) {
+    textarea {
+        width: 15rem;
+    }
 }
 
 @media only screen and (max-width: 330px) {
