@@ -76,7 +76,7 @@ button {
 }
 
 .postBtn:after {
-    content: url('https://i.postimg.cc/KYJg3WbK/icons8-search-32.png');
+    content: '+';
     width: 100%;
     position: relative;
     line-height: 60px;
@@ -92,7 +92,9 @@ button {
     transform: scale(0.85);
     animation: glow-stop 3s ease;
 }
-
+.active.active:checked~.postBtn::after {
+    content: 'x';
+}
 
 
 
