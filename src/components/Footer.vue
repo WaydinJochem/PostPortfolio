@@ -49,7 +49,7 @@ export default {
 
             let timerInterval
             swal.fire({
-                title: (TempText.value + ' Successfully Copied To Clipboard!'),
+                title: (' Phone Number Successfully Copied To Clipboard!'),
                 html: 'I will close in <b></b> milliseconds.',
                 timer: 2000,
                 timerProgressBar: true,

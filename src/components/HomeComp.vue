@@ -1,8 +1,14 @@
 <template>
+    <img src="" alt="Logo" class="logo">
     <div class="home row container-fluid p-5">
         <div class="col my-auto px-5">
             <h2 class="px-5 ">Hi, my Name's Waydin Jochem.
-                Wanna know more about me why not go browse through my projects or get in contact with me, perhaps my skills
+                Wanna get to know more <router-link to=""><strong> about </strong></router-link>me <span><img
+                        src="https://i.postimg.cc/5tMQHhB8/icons8-question-80.png" alt=""></span> Well why not have a look
+                through my <strong>projects</strong> or maybe just get in
+                <router-link to=""> <strong>contact</strong></router-link> with me <span><img
+                        src="https://i.postimg.cc/5tMQHhB8/icons8-question-80.png" alt=""></span> perhaps my
+                <strong>skills</strong>
                 might
                 be of use to you
             </h2>
@@ -23,14 +29,31 @@
     color: #FBF7F7;
 }
 
+.logo {
+    text-align: left !important;
+}
+
 img {
     border-radius: 50%;
     height: 761px;
     width: 617px;
 }
 
+a {
+    text-decoration: none;
+}
+
 button {
     padding: 30px;
-    
+
 }
-</style>
+
+strong {
+    color: #FF1A1A;
+    font-weight: lighter;
+}
+
+span img {
+    width: 30px;
+    height: 30px;
+}</style>
