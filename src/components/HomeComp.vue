@@ -5,10 +5,10 @@
             <h2 class="px-5 ">Hi, my Name's Waydin Jochem.
                 Wanna get to know more <strong><router-link to="">about</router-link></strong> me <span><img
                         src="https://i.postimg.cc/5tMQHhB8/icons8-question-80.png" alt=""></span> Well why not have a look
-                through my <strong><router-link to="">projcts</router-link></strong> or maybe just get in
+                through my <strong><router-link to="">projects</router-link></strong> or maybe just get in
                 <strong><router-link to="/contact">contact</router-link></strong> with me <span><img
                         src="https://i.postimg.cc/5tMQHhB8/icons8-question-80.png" alt=""></span> perhaps my
-                        <strong><router-link to="">skills</router-link></strong>
+                <strong><router-link to="">skills</router-link></strong>
                 might
                 be of use to you
             </h2>
@@ -42,6 +42,12 @@ img {
 a {
     text-decoration: none;
     color: #FF1A1A;
+    transition: all 1s ease;
+}
+
+a:hover {
+    color: #FBF7F7;
+    text-decoration: underline;
 }
 
 button {
