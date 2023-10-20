@@ -3,12 +3,12 @@
     <div class="home row container-fluid p-5">
         <div class="col my-auto px-5">
             <h2 class="px-5 ">Hi, my Name's Waydin Jochem.
-                Wanna get to know more <router-link to=""><strong> about </strong></router-link>me <span><img
+                Wanna get to know more <strong><router-link to="">about</router-link></strong> me <span><img
                         src="https://i.postimg.cc/5tMQHhB8/icons8-question-80.png" alt=""></span> Well why not have a look
-                through my <strong>projects</strong> or maybe just get in
-                <router-link to=""> <strong>contact</strong></router-link> with me <span><img
+                through my <strong><router-link to="">projcts</router-link></strong> or maybe just get in
+                <strong><router-link to="/contact">contact</router-link></strong> with me <span><img
                         src="https://i.postimg.cc/5tMQHhB8/icons8-question-80.png" alt=""></span> perhaps my
-                <strong>skills</strong>
+                        <strong><router-link to="">skills</router-link></strong>
                 might
                 be of use to you
             </h2>
@@ -41,6 +41,7 @@ img {
 
 a {
     text-decoration: none;
+    color: #FF1A1A;
 }
 
 button {
@@ -56,4 +57,5 @@ strong {
 span img {
     width: 30px;
     height: 30px;
-}</style>
+}
+</style>
