@@ -7,7 +7,7 @@
                 </div>
                 <div class="form-input">
                     <input type="email" name="email" placeholder="Input Email Address" v-model="contact.email" id="email"
-                        spellcheck="false">
+                        spellcheck="false" autocomplete="on">
                 </div>
             </div>
             <div class="form-data col-sm-6">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-input">
                     <input type="text" name="name" placeholder="Input fullname" v-model="contact.name" id="name"
-                        spellcheck="false">
+                        spellcheck="false" autocomplete="on">
                 </div>
             </div>
             <div class="form-data col">
@@ -142,17 +142,20 @@ form {
 input {
     outline: none;
     border: none;
-    border-bottom: 2px black solid;
     width: 3rem;
     transition: 0.7s ease-in-out;
     text-overflow: ellipsis;
-    background: none;
+    background: transparent;
+}
+
+input:-webkit-autofill:focus{
+    -webkit-box-shadow: 0 0 0 30px white inset;
 }
 
 input:focus {
     width: 10rem;
     text-align: center;
-    background: #ddd;
+    border-bottom: 2px #FFFFFF solid;
 }
 
 textarea {

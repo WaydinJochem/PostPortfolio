@@ -3,17 +3,15 @@
         <h1>Let's Get in Touch</h1>
         <img src="https://i.postimg.cc/x8PbMvL0/Emoji-removebg.png" alt="" class="img-fluid contact">
         <contact />
-        <FootComp />
     </div>
 </template>
 <script>
 import contact from '@/components/ContactForm.vue';
-import FootComp from '@/components/Footer.vue';
+
 export default {
     name: "ContactView",
     components: {
-        contact,
-        FootComp
+        contact
     }
 }
 </script>

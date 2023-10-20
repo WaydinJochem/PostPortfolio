@@ -7,15 +7,17 @@
       <Component :is="Component" />
     </transition>
   </router-view>
+  <FootComp/>
 </template>
 
 <script>
 import navComp from './components/Navigation.vue';
-
+import FootComp from '@/components/Footer.vue';
 
 export default {
   components: {
     navComp,
+    FootComp
 
   }
 }
