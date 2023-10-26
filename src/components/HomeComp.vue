@@ -2,7 +2,7 @@
     <img src="" alt="Logo" class="logo">
     <div class="home row container-fluid p-5">
         <div class="col my-auto px-5">
-            <h2 class="px-5 ">Hi, my Name's Waydin Jochem.
+            <h2 class="px-5 " id="myself">Hi, my Name's Waydin Jochem.
                 Wanna get to know more about me <router-link to="/about"><img
                         src="https://i.postimg.cc/5tMQHhB8/icons8-question-80.png" alt=""><span class="tooltiptext"> About
                         Page</span></router-link> Well why not have a
@@ -15,7 +15,7 @@
                         Page</span></router-link>
             </h2>
             <div class="row px-5 mt-5">
-                <button class="col" @click="download">CV</button>
+                <button class="col"><a href='../assets/CV of Waydin Jochem.docx' download>CV</a></button>
                 <button class="col">Explore More</button>
             </div>
         </div>
@@ -57,12 +57,13 @@ button {
 }
 
 button:nth-child() {
-  word-spacing: 200px;
+    word-spacing: 200px;
 }
 
 button:nth-child(1):hover::after {
     content: '\2913';
 }
+
 button:nth-child(2):hover::after {
     content: '\279C';
 }
@@ -113,4 +114,31 @@ a .tooltiptext {
 a:hover .tooltiptext {
     visibility: visible;
 
+}
+
+h2 {
+    animation: 3s ease pop-out infinite;
+}
+
+@keyframes pop-out {
+    0% {
+        text-shadow: 0 0 black;
+    }
+
+    25% {
+        text-shadow: 1px 0 black, 2px 0 black, 3px 0 black, 4px 0 black, 5px 0 black;
+    }
+
+    50% {
+        text-shadow: 0 0 black;
+    }
+
+    75% {
+        text-shadow: -1px 0 black, -2px 0 black, -3px 0 black, -4px 0 black,
+            -5px 0 black;
+    }
+
+    100% {
+        text-shadow: 0 0 black;
+    }
 }</style>

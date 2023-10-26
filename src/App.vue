@@ -43,14 +43,12 @@ body{
 
 .zoom-leave-to{ 
   opacity: 0;
-  /* transform: scale(0.25) translate(-100%, 100%); */
+  transition-duration: 0.25s;
  
 }
 
 .zoom-enter-from{
   opacity: 1;
-  /* transform: translate(100%, 100%); */
-
 }
 
 .zoom-enter-active,

@@ -1,5 +1,5 @@
 <template>
-    <nav role='navHeader' class="navigation" v-if="showNavbar">
+    <nav role='navHeader' class="navigation" v-if="Navbar">
         <input type="checkbox" id="post" class="active" />
         <label for="post" class="postBtn"></label>
         <ul>
@@ -37,14 +37,14 @@
 export default {
     data() {
         return {
-            showNavbar: true, // Initially, the navbar is visible
+            Navbar: true,
         };
     },
     methods: {
         toggleNavbar() {
             const eye = document.getElementById("eye");
-            this.showNavbar = !this.showNavbar;
-            if (!this.showNavbar) {
+            this.Navbar = !this.Navbar;
+            if (!this.Navbar) {
                 eye.style.background = "rgba(255, 255, 255, 0.1)"
                 eye.style.borderRadius = "50%"
                 eye.style.transform = "rotate(180deg)"
