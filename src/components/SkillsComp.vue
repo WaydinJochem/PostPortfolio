@@ -1,7 +1,12 @@
 <template>
-    <div>
-        <section id="img" class="row py-3 px-5" v-if="skills">
-            <Card v-for="skill in skills" :key="skill.id" :skills="skill" class="col-4" />
+    <div class="row">
+        <section id="img" class="py-3 px-5 col-4" v-if="skills">
+            <Card v-for="skill in skills" :key="skill.id" :skills="skill" id="skills" @click="showDescr()"/>
+        </section>
+        <section v-if="Descr" class="col-8 border-white border-start">
+            <div v-for="skill in skills" :key="skill">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ex modi deserunt earum? Repellat officiis eaque incidunt officia! Vitae doloremque, porro consectetur delectus at beatae odit voluptate praesentium pariatur aut.
+            </div>
         </section>
     </div>
 </template>
@@ -21,12 +26,12 @@ export default {
             this.Descr = !this.Descr
             const pic = document.getElementById("skills")
             if (this.Descr) {
-                pic.style.display = "flex"
-                pic.style.flexDirection = "column"
-            }
-            else {
                 pic.style.display = "grid"
                 pic.style.gridTemplateColumns = "auto auto auto"
+            }
+            else {
+                pic.style.display = "flex"
+                pic.style.flexDirection = "column"
             }
         }
     },
@@ -65,8 +70,9 @@ img {
     padding: 2px 16px;
 }
 
-#skills {
+
+/* #skills {
     display: grid;
     grid-template-columns: auto auto auto;
-}
+} */
 </style>
