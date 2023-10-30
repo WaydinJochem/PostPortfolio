@@ -4,7 +4,7 @@
         <label for="post" class="postBtn"></label>
         <ul>
             <li class="home">
-                <router-link to="/home">
+                <router-link to="/">
                     <img src="https://i.postimg.cc/9fKccWBK/icons8-home-64.png" alt="">
                 </router-link>
             </li>
