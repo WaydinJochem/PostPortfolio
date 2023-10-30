@@ -36,7 +36,7 @@ export default {
 <style scoped>
 .crd {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
+    transition: 0.5s;
     border-radius: 20px;
     position: relative;
 }
@@ -66,7 +66,7 @@ section {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: #008CBA;
+    background: radial-gradient(#414345, #151314);
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 #ddd;
 }
