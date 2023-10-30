@@ -1,9 +1,9 @@
 <template>
-    <div class="row">
-        <section id="img" class="py-3 px-5 col-4" v-if="skills">
-            <Card v-for="skill in skills" :key="skill.id" :skills="skill" id="skills" @click="showDescr()"/>
+    <div class="">
+        <section id="img" class="py-3 px-5 row " v-if="skills">
+            <Card v-for="skill in skills" :key="skill.id" :skills="skill" id="skills" @click="showDescr()" class="col-4"/>
         </section>
-        <section v-if="Descr" class="col-8 border-white border-start">
+        <section v-if="Descr" class="border-white border-start">
             <div v-for="skill in skills" :key="skill">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ex modi deserunt earum? Repellat officiis eaque incidunt officia! Vitae doloremque, porro consectetur delectus at beatae odit voluptate praesentium pariatur aut.
             </div>
@@ -71,8 +71,10 @@ img {
 }
 
 
-/* #skills {
-    display: grid;
-    grid-template-columns: auto auto auto;
-} */
+#skills {
+    /* display: grid;
+    grid-template-columns: auto auto auto; */
+    /* display: flex;
+    flex-direction: row; */
+}
 </style>

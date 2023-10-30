@@ -6,7 +6,7 @@ import SkillsView from '../views/SkillsView.vue'
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     name: 'home',
     component: HomeView
   },
